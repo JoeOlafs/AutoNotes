@@ -1,17 +1,20 @@
 "#AutoNotes" 
 import os
 import sys
-from datetime import date
+from datetime import date, datetime
 
 name = str(sys.argv[1])
 date = str(date.today())
-type = "txt"
-_dir = "C:\Users\Johannes\progs\AutoNotes\Notes"
+month = datetime.now().strftime('%b')
+type = str(sys.argv[2])
+path = os.environ.get('Notes')          #Add path to notes to ENV
+#_dir = path + '/' + month
 
-commands = [f'echo "# {name} - {date}" >> {name}.{type}',
+commands = [f'echo # {name} - {date} >> {name}.{type}',
           f'{name}.{type}']
 
-os.chdir(_dir)
+#os.mkdir(_dir)
+os.chdir(path)
 
 for c in commands:
      os.system(c)
