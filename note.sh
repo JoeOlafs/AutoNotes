@@ -1,4 +1,5 @@
 function Note() {
-     cd notes
-     echo ''
+     cd progs
+     cd AutoNotes
+     python main.py $1 $2
 }
